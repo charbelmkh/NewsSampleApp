@@ -6,7 +6,7 @@ import com.domain.task.BuildConfig
 import com.domain.task.core.connection.ConnectionManagerImpl
 import com.domain.task.Constant
 import com.domain.task.core.connection.ConnectionManager
-import com.elifox.legocatalog.api.AuthInterceptor
+import com.domain.task.core.api.AppInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -39,7 +39,7 @@ class CoreModule {
     }
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(connectionManager: ConnectionManager): OkHttpClient {
         Log.d(TAG, "provideOkHttpClient called")
         val logger =HttpLoggingInterceptor().apply { level = if (BuildConfig.DEBUG) BODY else NONE }
 
@@ -49,7 +49,7 @@ class CoreModule {
             builder.certificatePinner(certificatePinner)
         }
         builder.addInterceptor(logger)
-        builder.addInterceptor(AuthInterceptor(BuildConfig.API_KEY))
+        builder.addInterceptor(AppInterceptor(BuildConfig.API_KEY,connectionManager))
         return builder.build();
     }
 

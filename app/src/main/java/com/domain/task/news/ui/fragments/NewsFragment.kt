@@ -25,9 +25,9 @@ class NewsFragment : BaseFragment(), OnItemInterAction {
 
     val adapter: NewsAdapter by lazy {
         NewsAdapter(
-            this,R.layout.news_list_item,
+            this, R.layout.news_list_item,
 
-        )
+            )
     }
 
 
@@ -123,11 +123,12 @@ class NewsFragment : BaseFragment(), OnItemInterAction {
     }
 
     override fun onAddToBookMarkClick(rowData: News) {
-         viewModel.addToBookMark(rowData.id, !rowData.is_bookmark)
+        viewModel.addToBookMark(rowData.id, !rowData.is_bookmark)
     }
 
 
     private fun loadNews() {
+        snackBar.dismiss()
         viewModel.fetchTopNews()
     }
 }
