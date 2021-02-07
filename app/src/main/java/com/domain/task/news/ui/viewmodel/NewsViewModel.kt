@@ -27,6 +27,7 @@ class NewsViewModel @Inject constructor(private val repo: NewsRepository) : View
     }
 
     private fun fetchBookMark() {
+        Log.d(TAG, "fetchBookMark  called")
         bookMarks.removeSource(repo.bookMarks)
         bookMarks.addSource(repo.bookMarks, Observer {
             Log.d(TAG, "fetchBookMark  addSource")
@@ -36,6 +37,7 @@ class NewsViewModel @Inject constructor(private val repo: NewsRepository) : View
     }
 
     fun fetchTopNews() {
+        Log.d(TAG, "fetchBookMark  called")
         val source = repo.getTopNews()
         Log.d(TAG, "fetchTopNews $source")
         newsLiveData.removeSource(source)

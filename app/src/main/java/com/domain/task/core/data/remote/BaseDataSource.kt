@@ -5,7 +5,7 @@ import com.domain.task.core.data.Result
 import retrofit2.Response
 import java.io.IOException
 
-abstract class BaseDataSource constructor(val connectionManager: ConnectionManager) {
+abstract class BaseDataSource constructor(private val connectionManager: ConnectionManager) {
 
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): Result<T> {
         try {

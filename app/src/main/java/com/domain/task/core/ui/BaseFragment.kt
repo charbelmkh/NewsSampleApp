@@ -11,7 +11,6 @@ import com.domain.task.R
 import com.domain.task.core.data.Result
 import com.domain.task.core.ui.views.hide
 import com.domain.task.core.ui.views.show
-import com.domain.task.news.data.models.News
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -55,7 +54,8 @@ abstract class BaseFragment : Fragment(), HasAndroidInjector {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        snackBar = Snackbar.make(baseFragmentRoot, "", Snackbar.LENGTH_INDEFINITE);
+        val rootView: View = requireActivity().window.decorView.findViewById(android.R.id.content)
+        snackBar = Snackbar.make(rootView, "", Snackbar.LENGTH_INDEFINITE);
     }
     override fun onPause() {
         super.onPause()
@@ -78,7 +78,7 @@ abstract class BaseFragment : Fragment(), HasAndroidInjector {
             }
             Result.Status.ERROR -> {
                 defaultProgressBar.hide()
-                handleErrorWithMessage(result,retry)
+                handleErrorWithMessage(result, retry)
             }
 
         }

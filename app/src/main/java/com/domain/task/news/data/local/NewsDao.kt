@@ -13,6 +13,9 @@ interface NewsDao {
     @Query(value = "SELECT news.*,bookmarks.is_bookmark FROM news LEFT JOIN bookmarks ON bookmarks.news_id=news.id")
     fun getNews(): LiveData<List<News>>
 
+    @Query(value = "SELECT news.*,bookmarks.is_bookmark FROM news LEFT JOIN bookmarks ON bookmarks.news_id=news.id")
+    fun getNewsAsList(): List<News>
+
     @Query(value = "SELECT news.*,bookmarks.is_bookmark FROM news INNER JOIN bookmarks ON bookmarks.news_id=news.id AND bookmarks.is_bookmark=1")
     fun getBookMarks(): LiveData<List<News>>
 
@@ -24,10 +27,6 @@ interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(news: News)
-
-
-    @Query("DELETE FROM news")
-    suspend fun clearAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoBookMark(favorite: BookMarks)
