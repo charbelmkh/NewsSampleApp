@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NYT</string>
+    <string name="server_error_message">we are facing some technical issues please try again</string>
+    <string name="app_error_message">it seems the developer did a terrible job</string>
+    <string name="no_network_message">It seems you are offline</string>
+    <string name="no_internet_message">It seems you are not connect to the internet</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="top_news">TOP NEWS</string>
+    <string name="bookmark">BOOKMARK</string>
+    <string name="no_bookmarks_have_been_added">NO BOOKMARK HAS BEEN ADDED</string>
+    <string name="source">Source: %s</string>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/ten_dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/ten_dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+
+            android:id="@+id/thumbnail"
+            android:layout_width="@dimen/one_hundred_fifty"
+            android:layout_height="@dimen/one_hundred_fifty"
+            android:background="#C9C9C9"
+            android:orientation="vertical"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars"
+
+            >
+
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+            app:layout_constraintHorizontal_bias="0.0"
+
+            app:layout_constraintStart_toStartOf="@+id/thumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/thumbnail"
+            tools:text="Biden Signals Break With Trump Foreign Policy in a Wide-Ranging State Dept. Speech" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/byline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="By David E. Sanger and Eric Schmitt" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+
+            android:id="@+id/releaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/byline"
+            app:layout_constraintTop_toBottomOf="@+id/byline"
+            tools:text="April 12, 2019" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:src="@drawable/ic_bookmark"
+            android:id="@+id/bookmark"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/ten_dp"
+            android:orientation="vertical"
+            android:padding="2dp"
+            app:layout_constraintStart_toEndOf="@+id/releaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/byline"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
